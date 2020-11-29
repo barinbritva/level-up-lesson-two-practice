@@ -1,0 +1,11 @@
+{
+  "name": "green-fair",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "rm -rf ./public/js && tsc --outDir ./public/js"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "typescript": "^4.1.2"
+  }
+}
