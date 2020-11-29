@@ -1,9 +1,11 @@
+isDevelopment = process.env.NODE_ENV === 'development'
+
 module.exports = {
     mode: process.env.NODE_ENV,
-    entry: './src/main.ts',
+    // entry: './src/main.ts',
     output: {
-      path: __dirname + '/public',
-      filename: 'js/main.js'
+      // path: __dirname + '/public/js',
+      filename: '[name].js'
     },
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.json']
@@ -31,7 +33,7 @@ module.exports = {
         }
       ]
     },
-    devtool: process.env.NODE_ENV === 'development' ? 'source-map' : false,
-    watch: process.env.NODE_ENV === 'development'
+    devtool: isDevelopment ? 'source-map' : false,
+    // watch: isDevelopment
   }
   
