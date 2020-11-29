@@ -1,0 +1,413 @@
+@import 'common';
+@import 'header';
+
+.logo-and-nav {
+    .container {
+        height: 105px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav {
+        width: 795px;
+        justify-content: space-between;
+        font-family: $secondary-font-family;
+    }
+
+    .nav-link {
+        color: #393939;
+        text-transform: uppercase;
+        text-decoration: none;
+        position: relative;
+
+        &:hover {
+            color: $accent-color;
+        }
+
+        &:hover::after {
+            content: '';
+            display: block;
+            width: 102px;
+            height: 5px;
+            background-color: $accent-color;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -42px;
+        }
+    }
+}
+
+.slider {
+    height: 785px;
+    background-color: lightgray;
+    position: relative;
+
+    .slide-frame {
+        overflow: hidden;
+        height: 100%;
+        align-items: center;
+    }
+
+    .slides-container {
+        transition: all .6s ease;
+        height: 100%;
+    }
+
+
+    .slide-content {
+        flex-shrink: 0;
+        width: 100vw;
+        position: relative;
+
+        h2 {
+            margin-top: 0;
+        }
+    }
+
+    .slide-background {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        object-fit: cover;
+    }
+
+    .slide-inner-content {
+        position: relative;
+        color: white;
+        text-align: center;
+        padding: 0 80px;
+        left: 50%;
+        top: 45%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 100%;
+        margin: 0;
+    }
+
+    .slider-button {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &.right-button {
+            left: unset;
+            right: 20px;
+        }
+    }
+}
+
+.common-landing-section {
+    padding: 114px 0;
+
+    .container {
+        text-align: center;
+        
+        & > p {
+            margin-top: 35px;
+            margin-bottom: 60px;
+            font-size: 16px;
+            height: 17px;
+            line-height: 17px;
+            color: #393939;
+        }
+    }
+
+    h2 {
+        font-size: 36px;
+        font-weight: bold;
+        font-family: $secondary-font-family;
+        color: $headers-color;
+        text-transform: uppercase;
+        height: 27px;
+        line-height: 27px;
+        margin: 0;
+    }
+}
+
+.about-us {
+    .our-features {
+        justify-content: space-between;
+
+        p {
+            font-size: 14px;
+            line-height: 1.71;
+            width: 270px;
+            margin: 0;
+        }
+    }
+
+    .feature:hover {
+        .icon-container {
+            background-color: $accent-color;
+            border-color: $accent-color;
+        }
+
+        i {
+            color: white;
+        }
+
+        h3 {
+            color: $accent-color;
+        }
+    }
+
+    .icon-container {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: solid 2px #c4c4c4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+
+        i {
+            font-size: 48px;
+            color: #c4c4c4
+        }
+    }
+
+    h3 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #393939;
+        margin-top: 34px;
+        margin-bottom: 20px;
+        font-family: $secondary-font-family;
+        height: 15px;
+        line-height: 15px;
+    }
+}
+
+.projects {
+    .filter-buttons {
+        justify-content: center;
+    }
+
+    .radio-filter {        
+        margin-right: 10px;
+        cursor: pointer;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        input {
+            display: none;
+
+            &:checked + span {
+                color: white;
+                background-color: $accent-color;
+                border-color: $accent-color;
+            }
+        }
+
+        span {
+            display: block;
+            border: solid 1px #e9e9e9;
+            background-color: #f6f6f6;
+            border-radius: 2px;
+            color: #726e6e;
+            width: 150px;
+            height: 45px;
+            line-height: 43px;
+            font-family: $secondary-font-family;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            text-align: center;
+        }
+    }
+
+    .cases-container {
+        margin-top: 55px;
+        grid-template-columns: repeat(4, 285px);
+        grid-auto-rows: 285px;
+        gap: 10px;
+    }
+
+    .case-item {
+        background-color: #bdbebd;
+        text-decoration: none;
+        position: relative;
+
+        &:nth-child(5n + 1) {
+            grid-column: 1/3;
+            background-color: lightgreen;
+        }
+
+        &:nth-child(5n + 3) {
+            grid-column: 4/5;
+            grid-row: span 2;
+            background-color: lightseagreen;
+        }
+
+        &:nth-child(5n + 5) {
+            grid-column: 2/4;
+            background-color: limegreen;
+        }
+
+        &:hover .case-inner {
+            opacity: 1;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+    
+    .case-inner {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transition: all .25s ease-in-out;
+        border: 10px solid rgba(0, 0, 0, .6);
+    }
+
+    .case-inner-content {
+        height: 100%;
+        font-family: $secondary-font-family;
+        font-size: 16px;
+        color: white;
+        text-transform: uppercase;
+        background-color: black;
+        padding: 0 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+
+
+
+
+
+
+.achievements {
+    .achievement-item {
+
+    }
+
+    p {
+
+    }
+}
+
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 900px) {
+    .logo-and-nav {
+        position: relative;
+
+        .container {
+            height: auto;
+        }
+
+        nav {
+            flex-direction: column;
+            position: absolute;
+            top: 0;
+            padding: 15px;
+            background-color: $header-color;
+            left: -100%;
+            width: 100%;
+            transition: all .4s ease;
+
+            &.visible {
+                left: 0;
+            }
+        }
+
+        .nav-link {
+            text-transform: unset;
+        }
+
+        .nav-link + .nav-link {
+            margin-top: 8px;
+        }
+    }
+
+    .slider {
+        height: 75vh;
+    }
+
+    .common-landing-section {
+        padding: 60px 0;
+
+        .container > p {
+            margin-top: 20px;
+            margin-bottom: 40px;
+            height: unset;
+            line-height: unset;
+        }
+
+        h2 {
+            font-size: 28px;
+            width: 75vw;
+            margin: 0 auto;
+            height: unset;
+            line-height: unset;
+        }
+    }
+
+    .about-us {
+        .our-features {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .feature + .feature {
+            margin-top: 35px;
+        }
+
+        h3 {
+            margin-top: 26px;
+        }
+    }
+
+    .projects {
+        .filter-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-items: center;
+            row-gap: 10px;
+        }
+
+        .radio-filter {
+            margin-right: 0;
+        }
+
+        .cases-container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .case-inner {
+            opacity: 1;
+            border: none;
+            top: unset;
+            bottom: -28px;
+        }
+
+        .case-inner-content {
+            background-color: rgba($color: #FFFFFF, $alpha: 0);
+            color: #222222;
+            text-transform: unset;
+        }
+    }
+}

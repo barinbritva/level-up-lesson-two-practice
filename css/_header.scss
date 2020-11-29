@@ -1,0 +1,49 @@
+@import 'variables';
+
+header {
+    height: 48px;
+    box-shadow: 0px 1px 3px 0 rgba(155, 155, 155, 0.2);
+    background-color: $header-color;
+    
+    .container {
+        height: 100%;
+        font-size: 12px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .contacts i {
+        font-size: 15px;
+    }
+
+    span {
+        padding-right: 10px;
+    }
+
+    span + span {
+        border-left: 1px solid #e6e5e5;
+        padding-left: 10px;
+    }
+
+    span:last-child {
+        padding-right: 0;
+    }
+
+    .social-link {
+        color: $main-font-color;
+
+        &:hover {
+            color: $accent-color;
+        }
+    }
+
+    .social-link + .social-link {
+        margin-left: 15px;
+    }
+}
+
+@media (max-width: 900px) {
+    header {
+        border-bottom: 1px solid #bbb;
+    }
+}

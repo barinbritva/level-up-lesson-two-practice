@@ -1,0 +1,40 @@
+@import 'variables';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $main-font-family;
+    color: $main-font-color;
+    margin: 0;
+}
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.grid-container {
+    display: grid;
+}
+
+@media (min-width: 901px) {
+    .mobile-only {
+        display: none !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .desktop-only {
+        display: none !important;
+    }
+
+    .container {
+        width: 96vw;
+    }
+}
