@@ -1,15 +1,17 @@
-function sayHello(): void {
-    alert('Hello');
-}
+import { data } from './data';
 
-function getDataFromUser(message: string): string | null {
-    message = message === undefined ? 'введи что-нибудь' : message;
-    return prompt(message);
-}
+// function sayHello(): void {
+//     alert('Hello');
+// }
 
-function getRandomNumber (min: number, max: number): number {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+// function getDataFromUser(message: string): string | null {
+//     message = message === undefined ? 'введи что-нибудь' : message;
+//     return prompt(message);
+// }
+
+// function getRandomNumber (min: number, max: number): number {
+//     return Math.floor(Math.random() * (max - min + 1)) + min;
+// };
 
 const slidesContainerElement = document.querySelector<HTMLDivElement>('section.slider .slides-container');
 const slidesCount = slidesContainerElement?.children.length || 0;
@@ -33,10 +35,14 @@ function doSlide(direction: Direction): void {
     slidesContainerElement.style.transform = `translateX(${transformationValue}vw)`;
 }
 
+// @ts-ignore
 function leftSlide(): void {
     doSlide(-1);
 }
 
+// @ts-ignore
 function rightSlide(): void {
     doSlide(1);
 }
+
+console.log(data);
