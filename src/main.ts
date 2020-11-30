@@ -35,14 +35,16 @@ function doSlide(direction: Direction): void {
     slidesContainerElement.style.transform = `translateX(${transformationValue}vw)`;
 }
 
-// @ts-ignore
 function leftSlide(): void {
     doSlide(-1);
 }
 
-// @ts-ignore
 function rightSlide(): void {
     doSlide(1);
 }
+
+window['doSlide'] = doSlide;
+window['leftSlide'] = leftSlide;
+window['rightSlide'] = rightSlide;
 
 console.log(data);
