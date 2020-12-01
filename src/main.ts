@@ -1,19 +1,37 @@
-import { data } from './data';
+import { data, Data } from './data';
 
-// function sayHello(): void {
-//     alert('Hello');
-// }
+function renderSlides(data: Data[]): void {
+    const slider = getSliderElement()
 
-// function getDataFromUser(message: string): string | null {
-//     message = message === undefined ? 'введи что-нибудь' : message;
-//     return prompt(message);
-// }
+    if (slider == null) {
+        return;
+    }
 
-// function getRandomNumber (min: number, max: number): number {
-//     return Math.floor(Math.random() * (max - min + 1)) + min;
-// };
+    let content = '';
 
-const slidesContainerElement = document.querySelector<HTMLDivElement>('section.slider .slides-container');
+    data.forEach((item) => {
+        content += `<div class="slide-content">
+        <img src="${item.image}" class="slide-background">
+        <div class="slide-inner-content container">
+            <h2>${item.title}</h2>
+            <p>${item.description}</p>
+            <button class="slide-button">Some action</button>
+        </div>
+    </div>`
+    });
+
+    console.log(content);
+
+    slider.innerHTML = content;
+}
+
+function getSliderElement(): HTMLDivElement | null {
+    return document.querySelector<HTMLDivElement>('section.slider .slides-container');
+}
+
+renderSlides(data);
+
+const slidesContainerElement = getSliderElement();
 const slidesCount = slidesContainerElement?.children.length || 0;
 let currentSlideIndex = 0;
 
@@ -46,5 +64,3 @@ function rightSlide(): void {
 window['doSlide'] = doSlide;
 window['leftSlide'] = leftSlide;
 window['rightSlide'] = rightSlide;
-
-console.log(data);
